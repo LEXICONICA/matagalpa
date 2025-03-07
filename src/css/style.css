@@ -10,8 +10,10 @@
 
 /* Estilos Globales */
 body {
-    background-color: var(--color-light);
-    color: var(--color-dark);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* Navbar */
@@ -129,6 +131,7 @@ footer {
     color: var(--color-secondary);
     font-weight: bold;
     margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
 }
 
 .btn-custom {
@@ -358,13 +361,13 @@ footer {
 
 /****** Sección de cultura Matagalpa *******/
 
-.
+
 
 /* Sección Cultura */
 .cultura-section {
     background-color: var(--color-light);
     padding: 3rem 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Playfair Display';
 }
 
 /* Título de la sección */
@@ -480,7 +483,7 @@ footer {
     position: relative;
 }
 
-..gallery-carousel {
+.gallery-carousel {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
@@ -557,7 +560,8 @@ footer {
 .carousel-pagination .dot.active {
     background: var(--color-accent);
 }
-.culture-gallery .carousel-item{
+
+.culture-gallery .carousel-item {
     height: 60vh;
 }
 
@@ -571,4 +575,199 @@ footer {
     .culture-grid {
         grid-template-columns: 1fr;
     }
+}
+
+
+
+/*********Tradiciones ********/
+
+/* Asegura que la imagen se adapte correctamente al contenedor de la tarjeta */
+.tradicion-card .card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+}
+
+/* Ajustes generales para la sección */
+.title-bg {
+    position: absolute;
+    font-size: 4.5rem;
+    opacity: 0.1;
+    font-weight: 900;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--color-dark);
+}
+
+.tradicion-card {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background: var(--color-light);
+}
+
+.tradicion-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.tradiciones .tradicion-card .card-header {
+    padding: 1.5rem;
+    border-radius: 0 !important;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.tradicion-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.tradicion-list li:last-child {
+    border-bottom: none;
+}
+
+.read-more {
+    color: var(--color-primary) !important;
+    font-weight: 500;
+    text-decoration: none !important;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: var(--color-secondary) !important;
+}
+
+.badge {
+    color: var(--color-dark);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .title-bg {
+        font-size: 3rem;
+    }
+}
+
+/******* TURISMO *******/
+
+.turismo {
+    background: linear-gradient(to bottom right,
+            var(--color-light) 60%,
+            rgba(0, 103, 199, 0.05));
+}
+
+.attractions-grid {
+    position: relative;
+    z-index: 1;
+}
+
+.attraction-card {
+    background: var(--color-light);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.attraction-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.card-icon {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid var(--color-light);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.icon-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.attraction-card:hover .card-icon {
+    transform: scale(1.05);
+}
+
+.attraction-card:hover .icon-image {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+/* Borde dinámico */
+.card-icon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid var(--color-light);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.attraction-card:hover .card-icon::after {
+    opacity: 1;
+}
+
+/* Color del borde dinámico */
+.card-icon[style*="primary"]::after {
+    border-color: var(--color-primary);
+}
+
+.card-icon[style*="secondary"]::after {
+    border-color: var(--color-secondary);
+}
+
+.attraction-card:hover .card-icon {
+    transform: scale(1.1);
+}
+
+.attraction-card h3 {
+    color: var(--color-dark);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.category {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.line {
+    width: 50px;
+    height: 3px;
+    margin: 1rem auto;
+    opacity: 0.8;
+}
+
+/* Efecto de borde hover */
+.attraction-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background: var(--color-accent);
+    transition: left 0.4s ease;
 }

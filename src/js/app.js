@@ -201,4 +201,43 @@ document.addEventListener("DOMContentLoaded", () => {
     // Mostrar el primer slide
     showSlide(0);
   }
+
+  /*** Tradiciones */
+  // Funcionalidad para "Leer más"
+  document.querySelectorAll('.read-more').forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById(button.dataset.target);
+      target.classList.toggle('d-none');
+      button.textContent = target.classList.contains('d-none') ? 'Leer más...' : 'Mostrar menos';
+    });
+  });
+
+  // Animación al hacer scroll
+  const tradicionesSection = document.getElementById('tradiciones');
+  const observerOptions = {
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.tradicion-card').forEach((card, index) => {
+          setTimeout(() => {
+            card.style.opacity = 1;
+            card.style.transform = 'translateY(0)';
+          }, index * 150);
+        });
+      }
+    });
+  }, observerOptions);
+
+  observer.observe(tradicionesSection);
+
+  // Inicializar animaciones
+  document.querySelectorAll('.tradicion-card').forEach(card => {
+    card.style.opacity = 0;
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'all 0.5s ease';
+  });
 });
