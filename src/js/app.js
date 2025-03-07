@@ -116,45 +116,89 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", adjustCarouselRows);
   adjustCarouselRows(); // Ajuste inicial
 
-
-
-
-  // Inicializar Swiper
-  const swiper = new Swiper('.swiper', {
-    loop: true,
-    autoplay: {
-      delay: 5000,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true
-    },
-  });
-
-  // Acordeón interactivo
   document.querySelectorAll('.culture-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const content = card.querySelector('.card-content');
-      content.style.display = content.style.display === 'block' ? 'none' : 'block';
-      card.classList.toggle('active');
-    });
-  });
+    card.addEventListener('click', function () {
+      const content = this.querySelector('.card-content');
+      const toggle = this.querySelector('.toggle-icon');
 
-  // Animación al hacer scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = 1;
-        entry.target.style.transform = 'translateY(0)';
+      // Alterna la visualización del contenido
+      if (content.style.display === 'block') {
+        content.style.display = 'none';
+        toggle.textContent = '+';
+      } else {
+        // Cierra otros contenidos abiertos
+        document.querySelectorAll('.card-content').forEach(c => c.style.display = 'none');
+        document.querySelectorAll('.toggle-icon').forEach(t => t.textContent = '+');
+        content.style.display = 'block';
+        toggle.textContent = '–';
       }
     });
   });
+  const galleryCarousel = document.querySelector(".gallery-carousel");
+  if (galleryCarousel) {
+    const items = galleryCarousel.querySelectorAll(".carousel-item");
+    const dots = galleryCarousel.querySelectorAll(".carousel-pagination .dot");
+    const prevButton = galleryCarousel.querySelector(".carousel-control.prev");
+    const nextButton = galleryCarousel.querySelector(".carousel-control.next");
+    let currentIndex = 0;
+    const intervalTime = 5000;
+    let carouselInterval;
 
-  document.querySelectorAll('.culture-card, .gallery-carousel').forEach(el => {
-    el.style.opacity = 0;
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'all 0.6s ease-out';
-    observer.observe(el);
-  });
+    function showSlide(index) {
+      items.forEach((item, i) => {
+        item.classList.toggle("active", i === index);
+      });
+      if (dots.length) {
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+        });
+      }
+      currentIndex = index;
+    }
 
+    function nextSlide() {
+      let nextIndex = (currentIndex + 1) % items.length;
+      showSlide(nextIndex);
+    }
+
+    function prevSlide() {
+      let prevIndex = (currentIndex - 1 + items.length) % items.length;
+      showSlide(prevIndex);
+    }
+
+    // Eventos para los botones
+    if (nextButton) {
+      nextButton.addEventListener("click", () => {
+        nextSlide();
+        resetInterval();
+      });
+    }
+    if (prevButton) {
+      prevButton.addEventListener("click", () => {
+        prevSlide();
+        resetInterval();
+      });
+    }
+
+    // Eventos para la paginación
+    if (dots.length) {
+      dots.forEach((dot, i) => {
+        dot.addEventListener("click", () => {
+          showSlide(i);
+          resetInterval();
+        });
+      });
+    }
+
+    function resetInterval() {
+      clearInterval(carouselInterval);
+      carouselInterval = setInterval(nextSlide, intervalTime);
+    }
+
+    // Iniciar autoplay
+    carouselInterval = setInterval(nextSlide, intervalTime);
+
+    // Mostrar el primer slide
+    showSlide(0);
+  }
 });
