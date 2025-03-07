@@ -1,0 +1,479 @@
+/* Variables CSS - Facilita modificaciones futuras */
+:root {
+    --color-primary: #0067c7;
+    --color-secondary: #008200;
+    --color-accent: #ffd000;
+    --color-dark: #333;
+    --color-light: #ffffff;
+    --color-brown: #a77e58;
+}
+
+/* Estilos Globales */
+body {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--color-primary);
+    padding: 0.5rem 1rem;
+}
+
+.navbar-logo {
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover .navbar-logo {
+    transform: scale(1.05);
+}
+
+/* Hero Section - Carrusel */
+.hero-section {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-item {
+    height: 100vh;
+}
+
+.carousel-item img {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    color: var(--color-light);
+    width: 100%;
+    padding: 0 15px;
+}
+
+/* Cards Carrusel */
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    min-height: 400px;
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card-img-overlay {
+    background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.7));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+}
+
+.card-carousel .carousel-item {
+    height: 50vh;
+}
+
+/* Controles e Indicadores */
+.carousel-controls {
+    --control-size: 50px;
+    width: var(--control-size);
+    height: var(--control-size);
+    background-color: rgba(255, 208, 0, 0.9);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.carousel-controls:hover {
+    background-color: var(--color-secondary);
+    opacity: 1;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(0, 130, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.carousel-indicators .active {
+    background-color: var(--color-accent);
+    width: 35px;
+    border-radius: 8px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-brown);
+    color: var(--color-light);
+}
+
+/* Utilidades */
+.section-title {
+    color: var(--color-secondary);
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.btn-custom {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+}
+
+/* Media Queries */
+@media (max-width: 991.98px) {
+    .navbar-logo {
+        max-height: 35px;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+
+    .card {
+        min-height: 350px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .card-img-top {
+        height: 200px;
+    }
+}
+
+/******** Time line Matagalpa *******/
+
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+    list-style: none;
+}
+
+.timeline:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 4rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards;
+}
+
+.timeline-panel {
+    position: relative;
+    width: 46%;
+    padding: 1.5rem;
+    background: var(--color-light);
+    border-radius: 0.5rem;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Alternar posiciones */
+.timeline-item:nth-child(odd) .timeline-panel {
+    left: 0;
+}
+
+.timeline-item:nth-child(even) .timeline-panel {
+    right: 0;
+}
+
+/* Ajustar conectores */
+.timeline-item:nth-child(odd) .timeline-panel:after {
+    right: -20px;
+    left: auto;
+}
+
+.timeline-item:nth-child(even) .timeline-panel:after {
+    left: -20px;
+    right: auto;
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.timeline-panel {
+    position: relative;
+    width: 46%;
+    padding: 1.5rem;
+    background: var(--color-light);
+    border-radius: 0.5rem;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-badge {
+    position: absolute;
+    top: 1.5rem;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    transform: translateX(-50%);
+    background: var(--color-accent);
+    color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 3px solid var(--color-secondary);
+    font-size: 1.25rem;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.timeline-badge:hover {
+    transform: translateX(-50%) scale(1.1);
+    background: var(--color-secondary);
+    color: var(--color-light);
+}
+
+.timeline-title {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-accent);
+}
+
+.timeline-body p {
+    color: var(--color-dark);
+    line-height: 1.6;
+}
+
+/* Líneas conectivas */
+.timeline-panel:after {
+    content: "";
+    position: absolute;
+    top: 1.5rem;
+    width: 20px;
+    height: 3px;
+    background: var(--color-accent);
+}
+
+.timeline-item:not(.timeline-inverted) .timeline-panel:after {
+    right: -20px;
+}
+
+.timeline-inverted .timeline-panel:after {
+    left: -20px;
+}
+
+/* Responsividad */
+@media (max-width: 767px) {
+    .timeline:before {
+        left: 30px;
+    }
+
+    .timeline-panel {
+        width: calc(100% - 80px);
+        margin-left: 80px;
+    }
+
+    .timeline-badge {
+        left: 30px;
+        transform: none;
+    }
+
+    .timeline-panel:after {
+        left: -20px !important;
+    }
+}
+
+/* Mejoras de tipografía */
+#historia p {
+    font-size: 1.1rem;
+    color: var(--color-dark);
+    max-width: 800px;
+    margin: 1.5rem auto;
+    line-height: 1.6;
+}
+
+.section-title {
+    position: relative;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.section-title:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--color-accent);
+}
+
+
+
+/****** Sección de cultura Matagalpa *******/
+
+.cultura-section {
+    background: linear-gradient(to right, #f8f5f0 50%, #ffffff 50%);
+    font-family: 'Poppins', sans-serif;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #2c4a36;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 3px;
+    background: #c59d5f;
+}
+
+.culture-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.culture-intro {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4a4a4a;
+    margin-bottom: 2rem;
+}
+
+.culture-accordion {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.culture-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.culture-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #f8f5f0;
+}
+
+.card-header i {
+    font-size: 1.5rem;
+    color: #c59d5f;
+}
+
+.card-header h3 {
+    margin: 0;
+    color: #2c4a36;
+    font-size: 1.2rem;
+}
+
+.card-content {
+    padding: 1.5rem;
+    display: none;
+}
+
+.card-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-content li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.card-content li::before {
+    content: '•';
+    color: #c59d5f;
+    position: absolute;
+    left: 0;
+}
+
+.gallery-carousel {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 500px;
+}
+
+@media (max-width: 768px) {
+    .culture-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-carousel {
+        order: -1;
+    }
+}

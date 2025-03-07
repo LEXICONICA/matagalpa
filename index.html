@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matagalpa, Nicaragua - Tierra de Montañas y Café</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.1.1/dist/css/tabler.min.css" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="src/css/style.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <!-- Logo con escudo -->
+            <a class="navbar-brand fw-bold" href="#">
+                <img src="src/img/Escudo-Matagalpa.png" alt="Escudo de Matagalpa"
+                    class="d-inline-block align-top navbar-logo me-2" style="max-height: 40px">
+                MATAGALPA
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+
+                    <!-- Grupo Turismo -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Turismo
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#lugares">Lugares Turísticos</a></li>
+                            <li><a class="dropdown-item" href="#turismo">Tours y Paquetes</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Grupo Cultura y Tradición -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Cultura
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#historia">Historia</a></li>
+                            <li><a class="dropdown-item" href="#cultura">Cultura</a></li>
+                            <li><a class="dropdown-item" href="#tradiciones">Tradiciones</a></li>
+                            <li><a class="dropdown-item" href="#bailes">Bailes Típicos</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="inicio">
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+            <!-- Indicadores -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <!-- Slides -->
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="src/img/vista_panoramica_matagalpa.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item active" data-bs-interval="5000">
+                    <img src="src/img/Matagalpa-2.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="src/img/Matagalpa-4.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenido superpuesto -->
+        <div class="hero-content">
+            <h1 class="display-4 mb-4">Bienvenidos a Matagalpa</h1>
+            <p class="lead mb-4">La tierra de las montañas, el café y la rica cultura</p>
+            <a href="#lugares" class="btn btn-custom btn-lg">Descubre Más</a>
+        </div>
+    </section>
+
+    <!-- Sección de Lugares Turísticos -->
+    <section class="py-5" id="lugares">
+        <div class="container">
+            <h2 class="section-title text-center mt-5">Lugares Turísticos</h2>
+            <div id="cardsCarousel" class="carousel slide" data-bs-touch="false"
+                aria-label="Carrusel de Lugares Turísticos">
+                <!-- Indicadores -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#cardsCarousel" data-bs-slide-to="0" class="active"
+                        aria-current="true"></button>
+                    <button type="button" data-bs-target="#cardsCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#cardsCarousel" data-bs-slide-to="2"></button>
+                </div>
+
+                <div class="carousel-inner card-carousel">
+                    <!-- Contenido dinámico -->
+                </div>
+
+                <!-- Controles -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#cardsCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#cardsCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Plantilla de Card -->
+    <template id="cardTemplate">
+        <div class="col">
+            <div class="card card-hover" tabindex="0" role="button">
+                <img class="card-img-top" src="" alt="" loading="lazy">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+    <!-- Historia -->
+    <section class="py-5 bg-light" id="historia">
+        <div class="container">
+            <h2 class="section-title text-center mt-5">Historia de Matagalpa</h2>
+            <p>
+                Matagalpa es una ciudad y un municipio en el norte de Nicaragua, en la región de las montañas de la zona
+                central del país. La historia de Matagalpa está marcada por varios eventos clave a lo largo de los
+                siglos.
+            </p>
+            <ul class="timeline">
+                <!-- Época Precolombina -->
+                <li class="timeline-item" data-animation="fadeInUp">
+                    <div class="timeline-badge"><i class="ti ti-leaf"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">Época Precolombina</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                Antes de la llegada de los españoles, la región estaba habitada por grupos indígenas,
+                                principalmente
+                                los Matagalpa, quienes se dedicaban a la agricultura, la caza y la pesca, y contaban con
+                                un sistema propio
+                                de organización social y de gobierno.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <!-- Conquista y Colonia -->
+                <li class="timeline-item timeline-inverted" data-animation="fadeInUp">
+                    <div class="timeline-badge warning"><i class="ti ti-crosshair"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">Conquista y Colonia</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                <time datetime="1522">1522</time>: La llegada de los conquistadores españoles a
+                                Nicaragua transformó la región.
+                                Matagalpa fue ocupada por los españoles, quienes encontraron una fuerte resistencia
+                                indígena. Durante la
+                                colonización, la zona formó parte de la Gran Área del Reino de Guatemala.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <!-- Siglo XIX: Independencia -->
+                <li class="timeline-item" data-animation="fadeInUp">
+                    <div class="timeline-badge success"><i class="ti ti-flag"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">Siglo XIX: Independencia</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                <time datetime="1821">1821</time>: Nicaragua se independiza de España junto con las
+                                demás provincias de
+                                Centroamérica, consolidándose como república. Matagalpa forma parte de este nuevo
+                                proyecto nacional.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <!-- Actualidad -->
+                <li class="timeline-item" data-animation="fadeInUp">
+                    <div class="timeline-badge info"><i class="ti ti-star"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">Actualidad</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                Hoy, Matagalpa se destaca como una de las ciudades más importantes del norte de
+                                Nicaragua, reconocida por
+                                su belleza natural y su relevancia económica, cultural y social.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- Cultura -->
+    <section class="cultura-section py-5" id="cultura">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Descubre la Cultura Matagalpina</h2>
+
+            <div class="culture-grid">
+                <!-- Columna de texto -->
+                <div class="culture-content">
+                    <p class="culture-intro">
+                        Sumérgete en la rica herencia cultural de Matagalpa, cuna de tradiciones
+                        ancestrales y lucha social. Conoce a los legendarios <em>"indios flecheros"</em>
+                        y su legado histórico.
+                    </p>
+
+                    <div class="culture-accordion">
+                        <!-- Acordeón interactivo -->
+                        <div class="culture-card">
+                            <div class="card-header">
+                                <i class="fas fa-users"></i>
+                                <h3>Raíces Indígenas</h3>
+                            </div>
+                            <div class="card-content">
+                                <p>Comunidad originaria con influencias españolas y europeas. Mantiene:</p>
+                                <ul>
+                                    <li>Estructuras organizativas tradicionales</li>
+                                    <li>Cacique Mayor y Consejo de Ancianos</li>
+                                    <li>Prácticas ancestrales vivas</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="culture-card">
+                            <div class="card-header">
+                                <i class="fas fa-tshirt"></i>
+                                <h3>Vestimenta Tradicional</h3>
+                            </div>
+                            <div class="card-content">
+                                <p>El icónico <em>huipil matagalpino</em> caracterizado por:</p>
+                                <ul>
+                                    <li>Tejido en manta de algodón</li>
+                                    <li>Diseños rateados y manteados</li>
+                                    <li>Tallado artesanal desde la cintura</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="culture-card">
+                            <div class="card-header">
+                                <i class="fas fa-comments"></i>
+                                <h3>Leguaje y Tradición</h3>
+                            </div>
+                            <div class="card-content">
+                                <p>Herencia lingüística presente en:</p>
+                                <ul>
+                                    <li>Toponimias locales</li>
+                                    <li>Vocabulario cotidiano</li>
+                                    <li>Expresiones culturales</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="culture-card">
+                            <div class="card-header">
+                                <i class="fas fa-calendar-alt"></i>
+                                <h3>Festividades</h3>
+                            </div>
+                            <div class="card-content">
+                                <ul>
+                                    <li>Feria del Café (Septiembre)</li>
+                                    <li>Xilonem - Fiesta del Huipil</li>
+                                    <li>Fiestas Patronales (Septiembre 24)</li>
+                                    <li>Celebración de la Elevación a Ciudad</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna de imágenes -->
+                <div class="culture-gallery">
+                    <div class="gallery-carousel swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="huipil-traditional.jpg" alt="Mujer con huipil tradicional" loading="lazy">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="coffee-festival.jpg" alt="Feria del Café en Matagalpa" loading="lazy">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="ancient-symbols.jpg" alt="Símbolos indígenas matagalpinos" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tradiciones -->
+    <section class="py-5" id="tradiciones">
+        <div class="container">
+            <h2 class="section-title text-center">Tradiciones</h2>
+            <p>
+                Entre las tradiciones de Matagalpa, Nicaragua, se encuentran las
+                fiestas patronales, la Feria del Café, la Feria del Maíz, la Fiesta
+                del Huipil y el baile jamaquello.
+            </p>
+            <h4>Fiestas patronales</h4>
+            <p>
+                Se celebran del 22 al 30 de septiembre en honor a la Virgen de la
+                Merced. Incluyen una procesión, misa solemne, festival de polkas,
+                mazurcas y jamaquello, desfile hípico, montada campesina y elección de
+                la novia hípica. Se distribuyen alimentos a la población, como pozol,
+                tiste, chicha dulce, cususa, chicha bruja, pinol, agua Loja y guarapo.
+            </p>
+            <p><strong>Feria del Café:</strong> Se celebra en noviembre.</p>
+            <p><strong>Feria del Maíz:</strong> Se celebra en septiembre.</p>
+            <p><strong>Fiesta del Huipil:</strong> Se celebra en septiembre.</p>
+        </div>
+    </section>
+
+    <!-- Turismo -->
+    <section class="py-5 bg-light" id="turismo">
+        <div class="container">
+            <h2 class="section-title text-center">Turismo</h2>
+            <p>
+                Matagalpa, conocida como la "Perla del Septentrión", ofrece una
+                variedad de atractivos turísticos que combinan naturaleza, historia y
+                cultura. A continuación, se destacan algunos de los lugares más
+                emblemáticos de la región:
+            </p>
+            <ul>
+                <li>Catedral de San Pedro Apóstol</li>
+                <li>La cascada de la luna</li>
+                <li>El castillo de cacao</li>
+                <li>Cascada Santa Emilia</li>
+                <li>Reserva Natural Cerro Are</li>
+                <li>Mirador el Calvario</li>
+                <li>Cerro Apante</li>
+                <li>Casa Museo Comandante Carlos Fonseca</li>
+                <li>Nacional Coffee Museum</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Bailes Populares -->
+    <section class="py-5" id="bailes">
+        <div class="container">
+            <h2 class="section-title text-center">Bailes Populares</h2>
+            <p>
+                En Matagalpa y la región norte de Nicaragua se celebran distintos
+                bailes tradicionales como la polka, mazurka, corrido, mosaicos y
+                jamaquello, influenciados por la música y los instrumentos traídos por
+                los europeos.
+            </p>
+            <p>
+                <strong>Polka, Mazurka, Corrido, Mosaicos y Jamaquello:</strong> Son
+                típicos de Matagalpa, Jinotega, Estelí, Nueva Segovia y Madriz, y
+                resultan de la influencia europea en la música y los instrumentos.
+            </p>
+            <p>
+                <strong>Polka Norteña Nicaragüense:</strong> Es un género musical y de
+                baile muy popular en la región central norte de Nicaragua, con
+                instrumentos como acordeón, guitarra, mandolina, bajo y violín de
+                talalate.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="py-5" id="contacto">
+        <div class="container">
+            <h2 class="section-title text-center">Contacto</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Nombre" />
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Correo electrónico" />
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="4" placeholder="Mensaje"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-custom w-100">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container text-center">
+            <p>&copy; 2023 Matagalpa, Nicaragua. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#" class="text-white mx-2"><i class="ti ti-brand-facebook-filled"></i></i></a>
+                <a href="#" class="text-white mx-2"><i class="ti ti-brand-instagram-filled"></i></a>
+                <a href="#" class="text-white mx-2"><i class="ti ti-brand-x"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS y Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- Font Awesome -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.1.1/dist/js/tabler.min.js"></script> -->
+
+    <script src="src/js/app.js"></script>
+</body>
+
+</html>
