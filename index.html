@@ -4,16 +4,53 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Matagalpa, Nicaragua - Tierra de Montañas y Café</title>
+
+    <title>Matagalpa, Nicaragua - Turismo, Naturaleza y Cultura</title>
+
+    <!-- Meta descripción -->
+    <meta name="description"
+        content="Explora Matagalpa, Nicaragua: montañas, café, cascadas y cultura. Descubre su belleza natural y los mejores destinos turísticos." />
+
+    <!-- Meta keywords (opcional, pero útil para otros buscadores) -->
+    <meta name="keywords"
+        content="Matagalpa, turismo en Matagalpa, Nicaragua, cascadas, café, montañas, aventura, cultura, viajes" />
+
+    <!-- Meta robots (asegura que Google indexe la página) -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical (evita problemas de contenido duplicado) -->
+    <link rel="canonical" href="https://matagalpa.info/matagalpa" />
+
+    <!-- Open Graph (Mejor vista en Facebook, WhatsApp, etc.) -->
+    <meta property="og:title" content="Matagalpa, Nicaragua - Turismo, Naturaleza y Cultura" />
+    <meta property="og:description"
+        content="Descubre las maravillas de Matagalpa: su café, cascadas y reservas naturales." />
+    <meta property="og:image" content="https://matagalpa.info/img/matagalpa.jpg" />
+    <meta property="og:url" content="https://matagalpa.info/matagalpa" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card (para mejorar en Twitter/X) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Matagalpa, Nicaragua - Turismo, Naturaleza y Cultura" />
+    <meta name="twitter:description" content="Explora Matagalpa y su belleza natural: cascadas, montañas y cultura." />
+    <meta name="twitter:image" content="https://matagalpa.info/img/matagalpa.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="src/img/Escudo-Matagalpa.ico" type="image/x-icon" />
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.1.1/dist/css/tabler.min.css" /> -->
+
+    <!-- Íconos y estilos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
     <!-- Estilos personalizados -->
     <link rel="stylesheet" href="src/css/style.css" />
 </head>
+
 
 <body>
     <!-- Navbar -->
@@ -22,7 +59,7 @@
             <!-- Logo con escudo -->
             <a class="navbar-brand fw-bold" href="#">
                 <img src="src/img/Escudo-Matagalpa.png" alt="Escudo de Matagalpa"
-                    class="d-inline-block align-top navbar-logo me-2" style="max-height: 40px">
+                    class="d-inline-block align-top navbar-logo me-2 lazyload" style="max-height: 40px" loading="lazy">
                 MATAGALPA
             </a>
 
@@ -42,8 +79,8 @@
                             Turismo
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#lugares">Lugares Turísticos</a></li>
-                            <li><a class="dropdown-item" href="#turismo">Tours y Paquetes</a></li>
+                            <li><a class="dropdown-item" href="#lugares">Lugares</a></li>
+                            <li><a class="dropdown-item" href="#turismo">Turismo</a></li>
                         </ul>
                     </li>
 
@@ -81,13 +118,14 @@
             <div class="carousel-inner">
                 <!-- Slides -->
                 <div class="carousel-item" data-bs-interval="5000">
-                    <img src="src/img/vista_panoramica_matagalpa.jpg" class="d-block w-100" alt="...">
+                    <img src="src/img/vista_panoramica_matagalpa.jpg" class="d-block w-100 lazyload" alt="..."
+                        loading="lazy">
                 </div>
                 <div class="carousel-item active" data-bs-interval="5000">
-                    <img src="src/img/Matagalpa-2.jpg" class="d-block w-100" alt="...">
+                    <img src="src/img/Matagalpa-2.jpg" class="d-block w-100 lazyload" alt="..." loading="lazy">
                 </div>
                 <div class="carousel-item" data-bs-interval="5000">
-                    <img src="src/img/Matagalpa-4.jpg" class="d-block w-100" alt="...">
+                    <img src="src/img/Matagalpa-4.jpg" class="d-block w-100 lazyload" alt="..." loading="lazy">
                 </div>
             </div>
         </div>
@@ -135,7 +173,7 @@
     <template id="cardTemplate">
         <div class="col">
             <div class="card card-hover" tabindex="0" role="button">
-                <img class="card-img-top" src="" alt="" loading="lazy">
+                <img class="card-img-top lazyload" src="" alt="" loading="lazy">
                 <div class="card-body">
                     <h5 class="card-title"></h5>
                     <p class="card-text"></p>
@@ -175,7 +213,7 @@
                     </div>
                 </li>
                 <!-- Conquista y Colonia -->
-                <li class="timeline-item timeline-inverted" data-animation="fadeInUp">
+                <li class="timeline-item" data-animation="fadeInUp">
                     <div class="timeline-badge warning"><i class="ti ti-crosshair"></i></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
@@ -318,21 +356,32 @@
                     <div class="gallery-carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="src/img/huipil_tradicional.jpg" alt="Mujer con huipil tradicional"
+                                <img src="src/img/huipil_tradicional.jpg" class="lazyload"
+                                    alt="Mujer con huipil tradicional" loading="lazy">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="src/img/coffee-festival.jpg" class="lazyload" lt="Feria del Café en Matagalpa"
                                     loading="lazy">
                             </div>
                             <div class="carousel-item">
-                                <img src="src/img/coffee-festival.jpg" alt="Feria del Café en Matagalpa" loading="lazy">
+                                <img src="src/img/ancient-symbols.jpg" class="lazyload"
+                                    lt="Símbolos indígenas matagalpinos" loading="lazy">
                             </div>
                             <div class="carousel-item">
-                                <img src="src/img/ancient-symbols.jpg" alt="Símbolos indígenas matagalpinos"
-                                    loading="lazy">
+                                <img src="src/img/MiradorElCalvario400x400.jpg" class="lazyload"
+                                    alt="Mirador el calvario" loading="lazy">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="src/img/Casa-natal-Ruben-Dario400x400.jpg" class="lazyload"
+                                    alt="Casa natal Ruben Darío" loading="lazy">
                             </div>
                         </div>
                         <button class="carousel-control prev"><i class="ti ti-arrow-left"></i></button>
                         <button class="carousel-control next"><i class="ti ti-arrow-right"></i></button>
                         <div class="carousel-pagination">
                             <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
                             <span class="dot"></span>
                             <span class="dot"></span>
                         </div>
@@ -361,7 +410,7 @@
                     <article class="tradicion-card card h-100">
                         <!-- Fotografía representativa -->
                         <img src="src/img/fiestas-patrolanles.jpeg" alt="Fiestas Patronales de Matagalpa"
-                            class="card-img-top">
+                            class="card-img-top lazyload" loading="lazy">
                         <div class="card-header" style="background-color: var(--color-brown);">
                             <i class="fas fa-church fa-2x text-light"></i>
                             <h3 class="h4 mb-0 text-light">Fiestas Patronales</h3>
@@ -391,7 +440,8 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="tradicion-card card h-100">
                         <!-- Fotografía representativa -->
-                        <img src="src/img/feria-cafe.webp" alt="Feria del Café de Matagalpa" class="card-img-top">
+                        <img src="src/img/feria-cafe.webp" alt="Feria del Café de Matagalpa"
+                            class="card-img-top lazyload" loading="lazy">
                         <div class="card-header" style="background-color: var(--color-dark);">
                             <i class="fas fa-coffee fa-2x text-light"></i>
                             <h3 class="h4 mb-0 text-light">Feria del Café</h3>
@@ -417,7 +467,8 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="tradicion-card card h-100">
                         <!-- Fotografía representativa -->
-                        <img src="src/img/fiesta-huipil.jpg" alt="Fiesta del Huipil en Matagalpa" class="card-img-top">
+                        <img src="src/img/fiesta-huipil.jpg" alt="Fiesta del Huipil en Matagalpa"
+                            class="card-img-top lazyload" loading="lazy">
                         <div class="card-header" style="background-color: var(--color-primary);">
                             <i class="fas fa-tshirt fa-2x text-light"></i>
                             <h3 class="h4 mb-0 text-light">Fiesta del Huipil</h3>
@@ -451,8 +502,8 @@
             </h2>
 
             <p class="lead text-center mb-5 mx-auto" style="max-width: 800px;">
-                Descubre la "Perla del Septentrión" a través de sus maravillas naturales
-                y culturales
+                Sumérgete en la belleza de Matagalpa, conocida como la "Perla del Septentrión", y descubre su riqueza
+                natural, cultural y arquitectónica.
             </p>
 
             <div class="row g-4 attractions-grid">
@@ -460,8 +511,9 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="attraction-card">
                         <div class="card-icon">
-                            <img src="src/img/catedral.jpeg" alt="Catedral" class="icon-image"
-                                style="border-color: var(--color-primary);">
+                            <img src="src/img/catedral.jpeg"
+                                alt="Fachada de la Catedral de San Pedro Apóstol en Matagalpa"
+                                class="icon-image lazyload" style="border-color: var(--color-primary);" loading="lazy">
                         </div>
                         <h3>Catedral de San Pedro Apóstol</h3>
                         <p class="category" style="color: var(--color-brown);">Patrimonio Religioso</p>
@@ -473,11 +525,71 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="attraction-card">
                         <div class="card-icon">
-                            <img src="src/img/cascada.jpg" alt="Cascada" class="icon-image"
-                                style="border-color: var(--color-secondary);">
+                            <img src="src/img/cascada.jpg" alt="Cascada de la Luna rodeada de naturaleza en Matagalpa"
+                                class="icon-image lazyload" style="border-color: var(--color-secondary);"
+                                loading="lazy">
                         </div>
                         <h3>Cascada de la Luna</h3>
                         <p class="category" style="color: var(--color-brown);">Maravilla Natural</p>
+                        <div class="line" style="background: var(--color-accent);"></div>
+                    </div>
+                </div>
+
+                <!-- Castillo de Cacao -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="attraction-card">
+                        <div class="card-icon">
+                            <img src="src/img/CastilloCacao.png"
+                                alt="Fachada del Castillo de Cacao, un centro turístico de chocolate en Matagalpa"
+                                class="icon-image lazyload" style="border-color: var(--color-secondary);"
+                                loading="lazy">
+                        </div>
+                        <h3>Castillo de Cacao</h3>
+                        <p class="category" style="color: var(--color-brown);">Destino Gastronómico</p>
+                        <div class="line" style="background: var(--color-accent);"></div>
+                    </div>
+                </div>
+
+                <!-- Cascada Santa Emilia -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="attraction-card">
+                        <div class="card-icon">
+                            <img src="src/img/CascadaSantaEmilia.jpg"
+                                alt="Cascada Santa Emilia con aguas cristalinas en Matagalpa"
+                                class="icon-image lazyload" style="border-color: var(--color-secondary);"
+                                loading="lazy">
+                        </div>
+                        <h3>Cascada Santa Emilia</h3>
+                        <p class="category" style="color: var(--color-brown);">Maravilla Natural</p>
+                        <div class="line" style="background: var(--color-accent);"></div>
+                    </div>
+                </div>
+
+                <!-- Reserva Natural Cerro Arenal -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="attraction-card">
+                        <div class="card-icon">
+                            <img src="src/img/CerroAre.jpg"
+                                alt="Vista panorámica de la Reserva Natural Cerro Arenal en Matagalpa"
+                                class="icon-image lazyload" style="border-color: var(--color-secondary);"
+                                loading="lazy">
+                        </div>
+                        <h3>Reserva Natural Cerro Arenal</h3>
+                        <p class="category" style="color: var(--color-brown);">Área Protegida</p>
+                        <div class="line" style="background: var(--color-accent);"></div>
+                    </div>
+                </div>
+
+                <!-- Mirador El Calvario -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="attraction-card">
+                        <div class="card-icon">
+                            <img src="src/img/MiradorElCalvario.jpg"
+                                alt="Vista desde el Mirador El Calvario en Matagalpa" class="icon-image lazyload"
+                                style="border-color: var(--color-secondary);" loading="lazy">
+                        </div>
+                        <h3>Mirador El Calvario</h3>
+                        <p class="category" style="color: var(--color-brown);">Panorámica Urbana</p>
                         <div class="line" style="background: var(--color-accent);"></div>
                     </div>
                 </div>
@@ -486,58 +598,85 @@
     </section>
 
     <!-- Bailes Populares -->
-    <section class="py-5" id="bailes">
+    <section class="py-5 bg-light" id="bailes">
         <div class="container">
-            <h2 class="section-title text-center">Bailes Populares</h2>
-            <p>
-                En Matagalpa y la región norte de Nicaragua se celebran distintos
-                bailes tradicionales como la polka, mazurka, corrido, mosaicos y
-                jamaquello, influenciados por la música y los instrumentos traídos por
-                los europeos.
-            </p>
-            <p>
-                <strong>Polka, Mazurka, Corrido, Mosaicos y Jamaquello:</strong> Son
-                típicos de Matagalpa, Jinotega, Estelí, Nueva Segovia y Madriz, y
-                resultan de la influencia europea en la música y los instrumentos.
-            </p>
-            <p>
-                <strong>Polka Norteña Nicaragüense:</strong> Es un género musical y de
-                baile muy popular en la región central norte de Nicaragua, con
-                instrumentos como acordeón, guitarra, mandolina, bajo y violín de
-                talalate.
-            </p>
-        </div>
-    </section>
-
-    <!-- Contacto -->
-    <section class="py-5" id="contacto">
-        <div class="container">
-            <h2 class="section-title text-center">Contacto</h2>
-            <div class="row justify-content-center">
+            <span class="title-bg">Bailes</span>
+            <h2 class="section-title text-center my-5">Bailes Populares</h2>
+            <div class="row align-items-center">
+                <!-- Vídeo representativo -->
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <!-- Contenedor responsivo para vídeo -->
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/8Pxmq2_jHNc?start=3"
+                            title="Bailes Populares en Matagalpa" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <!-- Contenido textual -->
                 <div class="col-md-6">
-                    <form>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Nombre" />
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Correo electrónico" />
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" rows="4" placeholder="Mensaje"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-custom w-100">
-                            Enviar Mensaje
-                        </button>
-                    </form>
+                    <p class="lead">
+                        En Matagalpa y la región norte de Nicaragua se celebran distintos bailes tradicionales como la
+                        polka, mazurka, corrido, mosaicos y jamaquello, influenciados por la música y los instrumentos
+                        traídos por los europeos.
+                    </p>
+                    <p>
+                        <strong>Polka, Mazurka, Corrido, Mosaicos y Jamaquello:</strong> Son típicos de Matagalpa,
+                        Jinotega, Estelí, Nueva Segovia y Madriz, y resultan de la influencia europea en la música y los
+                        instrumentos.
+                    </p>
+                    <p>
+                        <strong>Polka Norteña Nicaragüense:</strong> Es un género musical y de baile muy popular en la
+                        región central norte de Nicaragua, con instrumentos como acordeón, guitarra, mandolina, bajo y
+                        violín de talalate.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Sección de Contacto -->
+    <section class="py-5" id="contacto">
+        <div class="container">
+            <span class="title-bg">Contacto</span>
+            <h2 class="section-title text-center mb-4">Contacto</h2>
+            <div class="row g-4">
+                <!-- Formulario de Contacto -->
+                <div class="col-lg-6">
+                    <form>
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" id="nombre" class="form-control" placeholder="Escribe tu nombre"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="correo" class="form-label">Correo electrónico</label>
+                            <input type="email" id="correo" class="form-control" placeholder="Escribe tu correo"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mensaje" class="form-label">Mensaje</label>
+                            <textarea id="mensaje" class="form-control" rows="4" placeholder="Escribe tu mensaje"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-custom w-100">Enviar Mensaje</button>
+                    </form>
+                </div>
+                <!-- Mapa con Leaflet -->
+                <div class="col-lg-6">
+                    <div id="map" class="rounded shadow" style="height: 350px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <!-- Footer -->
     <footer class="py-4">
         <div class="container text-center">
-            <p>&copy; 2023 Matagalpa, Nicaragua. Todos los derechos reservados.</p>
+            <p>
+                <script>document.write(new Date().getFullYear());</script> Matagalpa, Nicaragua. Todos los derechos
+                reservados.
+            </p>
             <div class="social-links">
                 <a href="#" class="text-white mx-2"><i class="ti ti-brand-facebook-filled"></i></i></a>
                 <a href="#" class="text-white mx-2"><i class="ti ti-brand-instagram-filled"></i></a>
@@ -552,6 +691,10 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <!-- Font Awesome -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.1.1/dist/js/tabler.min.js"></script> -->
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
 
     <script src="src/js/app.js"></script>
 </body>
